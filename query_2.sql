@@ -21,25 +21,19 @@ SELECT avg(src1.salary) as avg_salary
       ,src2.category_name
       ,src2.price
       ,Round(avg(src1.salary)/ src2.price , 0) AS quantity
-    --  ,src1.payroll_quarter
       ,src1.payroll_year
 
 FROM t_martina_volrabova_project_SQL_primary_final src1
--- CROSS JOIN min_max_year src3
 INNER JOIN (
 			SELECT Round(avg(sq1.price),2) AS price
 			      ,sq1.category_code
 			      ,sq1.category_name
-			    --  ,sq1.quarter
 			      ,sq1.year
 			FROM t_martina_volrabova_project_SQL_secondary_final sq1
 			WHERE sq1.category_code IN (111301, 114201)
 			  AND sq1.Year in (2006,2018) 
 			GROUP BY category_code, category_name, year
             ) src2  ON src2.year          = src1.payroll_year
-                    -- AND src2.quarter       = src1.payroll_quarter
-           --                  AND src2.category_code = src3.category_code
---                  AND (src2.year = src3.min_year OR src2.year = src3.max_year)
 WHERE src1.calculation_code = 100
 GROUP BY src1.industry_branch_name
         ,src2.category_name
