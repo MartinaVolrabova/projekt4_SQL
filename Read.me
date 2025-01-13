@@ -9,15 +9,18 @@
 /** Changelog: 2024/12/29 - first written                                                                                                   **/ 
 /**            2025/01/13 - rewrited                                                                                                        **/
 /*********************************************************************************************************************************************/
-/** DDL definice:                                                                                                                           **/
+/** Tables.sql file: obsahuje:                                                                                                              **/
 /** tabulka_1 - t_martina_volrabova_project_SQL_primary_final                                                                               **/
 /** tabulka_2 - t_martina_volrabova_project_SQL_secondary_final                                                                             **/
 /** tabulka_3 - price_changes                                                                                                               **/
-/** tabulka_4 - salary_changes                                                                                                             **/
+/** tabulka_4 - salary_changes                                                                                                              **/
+/**                                                                                                                                         **/
+/** Queries files obsahuji:                                                                                                                 **/
 /** query_1   - vývoj mezd v různých odvětvích na základě ročních údajů (payroll_year) a obsahuje informace o průměrných mzdách,            **/
+/**                                                                                                                                         **/
 /**             meziročním růstu mezd a směru pohybu mezd. Pokud atribut "yearly_change_percent" obsahuje +, mzda meziročně rostla, pokud -,**/ 
 /**             mzda meziročně klesla                                                                                                       **/
-/**                                                                                                                                          **/
+/**                                                                                                                                         **/
 /** query_2   - data o mzdách (salary) pro jednotlivé obory (industry_branch_name), průměrnou cenu zkoumaných potravin v                    **/
 /**             Česku v CZK (price) a množství (quantity), které lze za jetnovlié mzdy pořídit (Chléb v kilogramech a Mléko v litrech).     **/
 /**             Množina obsahuje historická data rozdělená do jetnolivých kvartálů a roků (payroll_quarter, payroll_year)                   **/
@@ -28,7 +31,7 @@
 /** query_4   - množina obsahuje data o procentuální meziroční změně průměrných mezd v ČR                                                   **/
 /**            (průměr všech oborů) - "avg_yearly_salary_change_percent" a meziroční změně cen potravin                                     **/
 /**             v procentech "avg_yearly_price_change_percent" pro jednotlivé potraviny "category_name".                                    **/
-/**             Výsledná množina zobrazuje pouze období (roky) ve kterých cena potravin rostla rychleji než mzdy o více než 10%.            **/                                                 **/
+/**             Výsledná množina zobrazuje pouze období (roky) ve kterých cena potravin rostla rychleji než mzdy o více než 10%.            **/ 
 /**                                                                                                                                         **/
 /** query_5   - Výsledná množina:  reprezentuje ekonomický vývoj ČR od roku 2000 na základě tří hlavních ukazatelů:                         **/
 /**                                                                                                                                         **/
