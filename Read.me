@@ -1,0 +1,68 @@
+/*********************************************************************************************************************************************/
+/*********************************************************************************************************************************************/
+/**             Projekt_4 zadání  - obsahuje 4 zdrojové tabulky a 5 queries, které hledají odpověď na zkoumané otázky v projektu4           **/
+/**                                     name: Projekt_4.sql                                                                                 **/
+/**                                     author: Martina Volrábová                                                                           **/
+/**                                     email: Martina.volrabova@seznam.cz                                                                  **/
+/**                                     discord: Martina Volrabova#!pdb1714                                                                 **/ 
+/*********************************************************************************************************************************************/
+/** Changelog: 2024/12/29 - first written                                                                                                   **/ 
+/**            2025/01/13 - rewrited                                                                                                        **/
+/*********************************************************************************************************************************************/
+/** DDL definice:                                                                                                                           **/
+/** tabulka_1 - t_martina_volrabova_project_SQL_primary_final                                                                               **/
+/** tabulka_2 - t_martina_volrabova_project_SQL_secondary_final                                                                             **/
+/** tabulka_3 - price_changes                                                                                                               **/
+/** tabulka_4 - salary_changes                                                                                                             **/
+/** query_1   - vývoj mezd v různých odvětvích na základě ročních údajů (payroll_year) a obsahuje informace o průměrných mzdách,            **/
+/**             meziročním růstu mezd a směru pohybu mezd. Pokud atribut "yearly_change_percent" obsahuje +, mzda meziročně rostla, pokud -,**/ 
+/**             mzda meziročně klesla                                                                                                       **/
+/**                                                                                                                                          **/
+/** query_2   - data o mzdách (salary) pro jednotlivé obory (industry_branch_name), průměrnou cenu zkoumaných potravin v                    **/
+/**             Česku v CZK (price) a množství (quantity), které lze za jetnovlié mzdy pořídit (Chléb v kilogramech a Mléko v litrech).     **/
+/**             Množina obsahuje historická data rozdělená do jetnolivých kvartálů a roků (payroll_quarter, payroll_year)                   **/
+/**                                                                                                                                         **/
+/** query_3   - data o průměrném meziročním vývoji cen jednotlivých potravin za celé měřené období (2006 - 2018)                            **/
+/**             Výsledkem je že Cuktr krystalový meziročně v průměru zlevňoval a jeho cena tedy zdražovala nejpomaleji                      **/  
+/**                                                                                                                                         **/
+/** query_4   - množina obsahuje data o procentuální meziroční změně průměrných mezd v ČR                                                   **/
+/**            (průměr všech oborů) - "avg_yearly_salary_change_percent" a meziroční změně cen potravin                                     **/
+/**             v procentech "avg_yearly_price_change_percent" pro jednotlivé potraviny "category_name".                                    **/
+/**             Výsledná množina zobrazuje pouze období (roky) ve kterých cena potravin rostla rychleji než mzdy o více než 10%.            **/                                                 **/
+/**                                                                                                                                         **/
+/** query_5   - Výsledná množina:  reprezentuje ekonomický vývoj ČR od roku 2000 na základě tří hlavních ukazatelů:                         **/
+/**                                                                                                                                         **/
+/**               - Makroekonomický výkon (GDP)                                                                                             **/
+/**               - ceny potravin a jejich růst – jak se vyvíjely průměrné ceny potravin a jejich meziroční změny                           **/
+/**               - mzdy a jejich růst – Jak rostly (nebo stagnovaly) průměrné mzdy                                                         **/
+/**                                                                                                                                         **/ 
+/**             Výstupem je časová řada s meziročními změnami, která umožňuje:                                                              **/
+/**                                                                                                                                         **/   
+/**               - porovnat tempo růstu GDP, mezd a cen potravin                                                                           **/
+/**               - identifikovat roky ekonomických krizí, kdy GDP klesalo a inflace rostla                                                 **/
+/**               - vyhodnotit, zda růst mezd držel krok s inflací potravin.                                                                **/
+/**                                                                                                                                         **/
+/*********************************************************************************************************************************************/
+/*********************************************************************************************************************************************/
+/*********************************************************************************************************************************************/
+query_1
+DOTAZ: Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+ODPOVĚĎ: Mzdy v průměru rostou, vyjímkou jsou roky 2013 a 2014. V těchto obcodbích mzdy klesaly.
+/*********************************************************************************************************************************************/
+query_2
+DOTAZ: Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
+ODPOVĚĎ: viz výsledná množina, jetnovlicé obory mohly pořizovan různá množství chleba a mléka v jednotlivých kvartálech a letech
+/*********************************************************************************************************************************************/
+query_3
+DOTAZ: Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
+ODPOVĚĎ: Nejpomaleji zdražuje Cukr krystalový
+/*********************************************************************************************************************************************/
+query_4
+DOTAZ: Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
+ODPOVĚĎ: V roce 2013 byl nárůst cen potravin vyšší než růst mezd a to zejména proto, že v roce 2013 mzdy výrazně klesaly
+/*********************************************************************************************************************************************/
+query_5
+DOTAZ: Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, 
+          projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+ODPOVĚĎ: Nelze určit, z analyzovaných dat nelze vypozorovat souvislost mezi růstem HDP a rychlostí zvyšování mezd a potravin
+/*********************************************************************************************************************************************/
